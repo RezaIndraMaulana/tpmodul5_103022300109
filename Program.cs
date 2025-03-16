@@ -15,13 +15,25 @@ namespace DataGenericApp
         }
     }
 
+    class HaloGeneric
+    {
+        public void SapaUser<T>(T user)
+        {
+            Console.WriteLine($"Halo user {user}");
+        }
+    }
+
     class Program
     {
         static void Main()
         {
             DataGeneric<string> dataNIM = new DataGeneric<string>("103022300109");
             dataNIM.PrintData();
-            Console.ReadLine();
+
+            HaloGeneric halo = new HaloGeneric();
+            Console.Write("Masukkan Nama Anda: ");
+            string nama = Console.ReadLine();
+            halo.SapaUser(nama);
         }
     }
 }
