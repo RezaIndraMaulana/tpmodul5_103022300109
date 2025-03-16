@@ -1,23 +1,39 @@
-﻿// See https://aka.ms/new-console-template for more information
 using System;
 
-class HaloGeneric
+namespace DataGenericApp
 {
-    public void SapaUser<T>(T user)
+    class DataGeneric<T>
     {
-        Console.WriteLine($"Halo user {user}");
+        private T data;
+        public DataGeneric(T data)
+        {
+            this.data = data;
+        }
+        public void PrintData()
+        {
+            Console.WriteLine($"Data yang tersimpan adalah: {data}");
+        }
     }
-}
 
-class Program
-{
-    static void Main()
+    class HaloGeneric
     {
-        HaloGeneric halo = new HaloGeneric();
+        public void SapaUser<T>(T user)
+        {
+            Console.WriteLine($"Halo user {user}");
+        }
+    }
 
-        Console.Write("Masukkan Nama Anda: ");
-        string nama = Console.ReadLine();
+    class Program
+    {
+        static void Main()
+        {
+            DataGeneric<string> dataNIM = new DataGeneric<string>("103022300109");
+            dataNIM.PrintData();
 
-        halo.SapaUser(nama);
+            HaloGeneric halo = new HaloGeneric();
+            Console.Write("Masukkan Nama Anda: ");
+            string nama = Console.ReadLine();
+            halo.SapaUser(nama);
+        }
     }
 }
